@@ -3,6 +3,8 @@
 # Use the official Python image as the base
 FROM --platform=linux/amd64 python:3.10.13
 
+EXPOSE 4318
+EXPOSE 3000
 # Install dependencies using apt-get
 RUN apt-get update && \
     apt-get install -y libffi-dev libssl-dev gcc musl-dev make
