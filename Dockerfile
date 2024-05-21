@@ -8,8 +8,7 @@ RUN apt-get update && \
     apt-get install -y libffi-dev libssl-dev gcc musl-dev make
 
 # Install docker-compose using pip
-RUN pip install --upgrade pip && \
-    pip install docker-compose
+RUN pip install --upgrade pip && pip install pyyaml==5.3.1 && pip install docker-compose
 
 # Copy the docker-compose file into the container
 COPY docker-compose.yml /docker-compose.yml
