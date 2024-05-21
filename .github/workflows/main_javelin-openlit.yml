@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://ghcr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_7c6e2ad26358469fafa85d770aa73fbf }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_57f0948e544141e484f3854b6796776d }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_e1dbe11ef92145dcb25cb0adee156e43 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_07889525214e4610bc75a9054c402528 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c6e2ad26358469fafa85d770aa73fbf }}/pratiksinghchauhan/openlit:${{ github.sha }}
+        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_e1dbe11ef92145dcb25cb0adee156e43 }}/pratiksinghchauhan/openlit:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'javelin-openlit'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a7ba4174717743efab412bd0a41cd967 }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c6e2ad26358469fafa85d770aa73fbf }}/pratiksinghchauhan/openlit:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6ebc2f7055384169b18b03aa9d0d7726 }}
+        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_e1dbe11ef92145dcb25cb0adee156e43 }}/pratiksinghchauhan/openlit:${{ github.sha }}'
