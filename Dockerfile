@@ -16,4 +16,4 @@ RUN pip install --upgrade pip && pip install pyyaml==5.3.1 && pip install docker
 COPY docker-compose.yml /docker-compose.yml
 
 # Entry point to run docker-compose up
-CMD ["docker-compose", "-f", "/docker-compose.yml", "up"]
+CMD ["docker-compose", "-f", "/docker-compose.yml", "up", "-d"]
