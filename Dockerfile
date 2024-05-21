@@ -1,11 +1,11 @@
 # Dockerfile for running docker-compose
 
 # Use the official Python image as the base
-FROM python:3.11-alpine
+FROM --platform=linux/amd64 python:3.10.13
 
-# Install dependencies using apk
-RUN apk update && \
-    apk add --no-cache libffi-dev openssl-dev gcc musl-dev make
+# Install dependencies using apt-get
+RUN apt-get update && \
+    apt-get install -y libffi-dev libssl-dev gcc musl-dev make
 
 # Install docker-compose using pip
 RUN pip install --upgrade pip && \
