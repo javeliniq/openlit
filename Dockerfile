@@ -4,11 +4,9 @@
 FROM docker:latest
 
 # Install docker-compose
-RUN apt-get update && \
-    apt-get install -y python3-pip python3-dev libffi-dev libssl-dev gcc libc-dev make && \
-    pip3 install docker-compose && \
-    apt-get clean
-
+RUN apk update && \
+    apk add --no-cache python3 py3-pip python3-dev libffi-dev openssl-dev gcc musl-dev make && \
+    pip3 install docker-compose
 
 # Copy the docker-compose file into the container
 COPY docker-compose.yml /docker-compose.yml
